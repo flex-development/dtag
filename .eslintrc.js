@@ -120,6 +120,7 @@ const RULES = {
         'enum',
         'esm',
         'formatter',
+        'monorepo',
         'nullish',
         'perf',
         'pnv',

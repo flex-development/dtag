@@ -18,7 +18,7 @@ Distribution tag lookup utility
 
 Assuming a distribution (dist) tag is included in `package.json#version` (e.g
 `3.13.98-dev.640` where `dev` is the intended dist tag), `dtag` allows
-maintainers to lookup and transform dist tags.
+maintainers to lookup and interpolate dist tags.
 
 ## Usage
 

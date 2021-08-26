@@ -19,8 +19,14 @@ import type { DistTagOptions } from './interfaces'
  * [1]: https://docs.npmjs.com/cli/v7/commands/npm-dist-tag
  *
  * @example main({ version: 'v3.13.98-dev.640' }) => 'dev'
- * @example main({ map: { rc: 'next' } }, { version: 'v3.0.0-rc' }) => 'next'
- * @example main({ tagPrefix: 'foo@', { version: 'foo@2.0.0-beta.1' }) => 'beta'
+ * @example main({ map: { rc: 'next' }, version: 'v3.0.0-rc' }) => 'next'
+ * @example main({ tagPrefix: 'foo@', version: 'foo@2.0.0-beta.1' }) => 'beta'
+ * @example
+ *  main({
+ *    map: { rc: 'next' },
+ *    tagPrefix: 'foo@',
+ *    version: 'foo-pkg@26.0.0-rc.13'
+ *  }) => 'beta'
  *
  * @param {DistTagOptions} [options=defaults] - Lookup options
  * @param {Record<string,string>} [options.map={}] - Distribution tag map
