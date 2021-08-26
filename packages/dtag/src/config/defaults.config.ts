@@ -9,6 +9,7 @@ import type { DistTagOptionsDefaults } from '@dtag/interfaces'
  * @property {DistTagOptionsDefaults} defaults - Default application options
  */
 const defaults: DistTagOptionsDefaults = {
+  delimiter: '-',
   map: {},
   tagPrefix: 'v',
   version: null
