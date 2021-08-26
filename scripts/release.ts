@@ -167,9 +167,10 @@ const options: IGreaseOptions = {
 }
 
 // Log workflow start
-log(argv, `starting release workflow`, [$name, `[dry=${argv.dryRun}]`], 'info')
+log(argv, 'starting release workflow', [$name, `[dry=${argv.dryRun}]`], 'info')
 
 // Run release workflow
 grease(merge({}, options, argv)).catch(error => {
-  sh.echo(ch.bold.red(util.inspect(error, false, null)))
+  if (error.stderr) return
+  else sh.echo(ch.bold.red(util.inspect(error, false, null)))
 })
