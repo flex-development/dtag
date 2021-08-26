@@ -9,3 +9,4 @@ node_modules/
 **/CHANGELOG.md
 .env.*
 .env
+yarn.lock

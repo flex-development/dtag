@@ -7,7 +7,7 @@ module.exports = {
   /**
    * Formatting command rules.
    */
-  ['*,!yarn.lock']: ['yarn fix:format', 'git add -A'],
+  '*': ['yarn fix:format', 'git add -A'],
 
   /**
    * Linting command rules.
