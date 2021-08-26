@@ -1,6 +1,6 @@
+import merge from 'lodash.merge'
 import defaults from './config/defaults.config'
 import type { DistTagOptions } from './interfaces'
-import type { SemanticVersionTag } from './types'
 
 /**
  * @file Main Method
@@ -24,29 +24,38 @@ import type { SemanticVersionTag } from './types'
  *
  * @param {DistTagOptions} [options=defaults] - Lookup options
  * @param {Record<string,string>} [options.map={}] - Distribution tag map
+ * @param {string} [options.delimiter='-'] - Prerelease delimiter
  * @param {boolean} [options.skip] - Skip distribution tag lookup
  * @param {string} [options.tagPrefix='v'] - Git tag prefix
- * @param {SemanticVersionTag} [options.version=null] - Package version
+ * @param {any} [options.version=null] - Package version
  * @return {string | undefined} `prerelease` tag or `undefined`
  */
 const main = (options: DistTagOptions = defaults): string | undefined => {
-  // Return undefined if no project version
-  if (!options.version) return undefined
+  // Skip distribution tag lookup
+  if (options.skip || typeof options.version !== 'string') return undefined
 
   // Spread options
-  //
+  const { delimiter, map, tagPrefix, version } = merge({}, defaults, options)
 
-  // Return `prerelease` if autogeneration is disabled or custom value is set
-  //
+  // Initialize distribution tag
+  let tag: string | undefined
 
-  // Split version at `tagPrefix`
-  //
+  // Remove tagPrefix if included in version
+  if (version.startsWith(tagPrefix)) {
+    tag = version?.substring(tagPrefix.length, version.length)
+  } else tag = version
+
+  // Split at prerelease delimiter
+  tag = tag?.split(delimiter)[1] || ''
 
   // Remove build number if present
-  //
+  if (tag && tag.includes('.')) tag = tag.split('.')[0]
 
-  // Return `prerelease` tag or undefined (if empty string)
-  return undefined
+  // Interpolate tag
+  if (map && Object.keys(map).length) tag = map[tag]
+
+  // Return distribution tag or undefined (if empty string)
+  return tag.trim() || undefined
 }
 
 export default main

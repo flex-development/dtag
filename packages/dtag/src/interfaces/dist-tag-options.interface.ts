@@ -1,6 +1,3 @@
-import type { SemanticVersionTag } from '@dtag/types'
-import type { NIL } from '@flex-development/tutils'
-
 /**
  * @file Interfaces - DistTagOptions
  * @module dtag/interfaces/DistTagOptions
@@ -11,12 +8,19 @@ import type { NIL } from '@flex-development/tutils'
  */
 export interface DistTagOptions {
   /**
+   * Prerelease delimiter.
+   *
+   * @default '-'
+   */
+  delimiter?: string
+
+  /**
    * Distribution (dist) tag map. If a dist tag is found in `version` and `map`
    * is a non-empty object, the tag returned will be plucked from `map`.
    *
    * @default {}
    */
-  map?: { [tag: string]: string }
+  map?: Record<string, string>
 
   /**
    * Skip the distribution tag lookup process.
@@ -37,13 +41,14 @@ export interface DistTagOptions {
    *
    * @default null
    */
-  version?: SemanticVersionTag | NIL
+  version?: any
 }
 
 /**
  * Default `dtag` options.
  */
 export type DistTagOptionsDefaults = {
+  delimiter: NonNullable<DistTagOptions['delimiter']>
   map: NonNullable<DistTagOptions['map']>
   tagPrefix: NonNullable<DistTagOptions['tagPrefix']>
   version: DistTagOptions['version']
