@@ -1,10 +1,9 @@
 {
   "name": "@flex-development/dtag",
-  "description": "Get distribution tag from package version",
+  "description": "Distribution tag lookup utility",
   "version": "1.0.0",
   "keywords": [
-    "dist-tag",
-    "distribution tag",
+    "dist-tags",
     "typescript"
   ],
   "homepage": "https://github.com/flex-development/dtag/tree/next/packages/dtag",

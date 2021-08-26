@@ -35,7 +35,7 @@ export interface DistTagOptions {
   tagPrefix?: string
 
   /**
-   * Package version (with or without `tagPrefix`).
+   * Package version or release tag.
    *
    * @default null
    */
