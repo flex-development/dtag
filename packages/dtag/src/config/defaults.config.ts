@@ -8,6 +8,10 @@ import type { DistTagOptionsDefaults } from '@dtag/interfaces'
 /**
  * @property {DistTagOptionsDefaults} defaults - Default application options
  */
-const defaults: DistTagOptionsDefaults = {}
+const defaults: DistTagOptionsDefaults = {
+  map: {},
+  tagPrefix: 'v',
+  version: null
+}
 
 export default defaults
