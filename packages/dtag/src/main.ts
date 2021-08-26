@@ -1,7 +1,6 @@
-import type { NIL } from '@flex-development/tutils'
 import defaults from './config/defaults.config'
 import type { DistTagOptions } from './interfaces'
-import type { SemanticVersion } from './types'
+import type { SemanticVersionTag } from './types'
 
 /**
  * @file Main Method
@@ -9,29 +8,30 @@ import type { SemanticVersion } from './types'
  */
 
 /**
- * Generates a [distribution tag][1] value based on `version`.
+ * Searches for a [distribution (dist) tag][1] value in `options.version`.
  *
- * Assuming a project's [distribution tag][1] (dist tag / `prerelease` tag) is
- * indicated in a project version number (e.g `3.13.98-dev.640` where `dev` is
- * the intended dist tag and value), this function returns that value.
+ * The function assumes a project's [dist tag][1] is included in it's version
+ * number  (e.g `3.13.98-dev.640` where `dev` is the intended dist tag value).
  *
- * If `options.prerelease` is a non-empty string, it'll be returned instead.
+ * In cases where the tag found is not the tag intended (e.g: `3.13.98-rc.640`),
+ * use `options.map` to interpolate tags.
  *
  * [1]: https://docs.npmjs.com/cli/v7/commands/npm-dist-tag
  *
- * @param {DistTagOptions} [options=defaults] - Application options
- * @param {string} [options.prerelease] - Custom prerelease tag
- * @param {boolean} [options.prereleaseAuto=true] - Disable autogeneration
+ * @example main({ version: 'v3.13.98-dev.640' }) => 'dev'
+ * @example main({ map: { rc: 'next' } }, { version: 'v3.0.0-rc' }) => 'next'
+ * @example main({ tagPrefix: 'foo@', { version: 'foo@2.0.0-beta.1' }) => 'beta'
+ *
+ * @param {DistTagOptions} [options=defaults] - Lookup options
+ * @param {Record<string,string>} [options.map={}] - Distribution tag map
+ * @param {boolean} [options.skip] - Skip distribution tag lookup
  * @param {string} [options.tagPrefix='v'] - Git tag prefix
- * @param {SemanticVersion} [version=null] - Project version
+ * @param {SemanticVersionTag} [options.version=null] - Package version
  * @return {string | undefined} `prerelease` tag or `undefined`
  */
-const main = (
-  options: DistTagOptions = defaults,
-  version: SemanticVersion | NIL = null
-): string | undefined => {
+const main = (options: DistTagOptions = defaults): string | undefined => {
   // Return undefined if no project version
-  if (!version) return undefined
+  if (!options.version) return undefined
 
   // Spread options
   //
