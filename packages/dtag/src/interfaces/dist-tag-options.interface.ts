@@ -4,11 +4,11 @@
  */
 
 /**
- * `dtag` options interface.
+ * `dtag` options.
  */
 export interface DistTagOptions {
   /**
-   * Prerelease delimiter.
+   * Prerelease delimiter (e.g `-` before `alpha` in `foo-pkg@26.0.0-alpha.13`).
    *
    * @default '-'
    */
@@ -23,9 +23,7 @@ export interface DistTagOptions {
   map?: Record<string, string>
 
   /**
-   * Skip the distribution tag lookup process.
-   *
-   * @default false
+   * Skip distribution tag lookup.
    */
   skip?: boolean
 
