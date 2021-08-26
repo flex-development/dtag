@@ -34,7 +34,7 @@ import type { DistTagOptions } from './interfaces'
  * @param {string} [options.delimiter='-'] - Prerelease delimiter
  * @param {boolean} [options.skip] - Skip distribution tag lookup
  * @param {string} [options.tagPrefix='v'] - Git tag prefix
- * @param {any} [options.version=null] - Package version
+ * @param {any} [options.version=null] - Package version or release tag
  * @return {string | undefined} `prerelease` tag or `undefined`
  */
 const main = (options: DistTagOptions = defaults): string | undefined => {
