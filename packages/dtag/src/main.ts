@@ -34,7 +34,7 @@ const main = (
   if (!version) return undefined
 
   // Spread options
-  const { prerelease, prereleaseAuto, tagPrefix } = options
+  //
 
   // Return `prerelease` if autogeneration is disabled or custom value is set
   //

@@ -20,7 +20,10 @@ module.exports = merge(rootConfig, {
           RULES_SPELLCHECKER[0],
           {
             ...RULES_SPELLCHECKER[1],
-            skipWords: RULES_SPELLCHECKER[1].skipWords.concat([])
+            skipWords: RULES_SPELLCHECKER[1].skipWords.concat([
+              'autogeneration',
+              'semver'
+            ])
           }
         ]
       }
