@@ -42,6 +42,7 @@
   "devDependencies": {
     "@types/lodash.merge": "4.6.6",
     "dotenv-cli": "4.0.0",
+    "ts-node": "10.1.0",
     "ttypescript": "1.5.12"
   },
   "engines": {
