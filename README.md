@@ -17,7 +17,7 @@ Distribution tag lookup utility
 `dtag` is a [distribution tag][1] utility for Node.js and CLI environments.
 
 Assuming a [distribution (dist) tag][1] is included in package version or
-release tag (e.g `3.13.98-dev.640`, `foo-package@26.0.0-alpha.1)`, `dtag` helps
+release tag (e.g `3.13.98-dev.640`, `foo-package@26.0.0-alpha.1`), `dtag` helps
 maintainers lookup and interpolate distribution tags.
 
 ## Usage
