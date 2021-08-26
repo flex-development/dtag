@@ -1,6 +1,6 @@
 {
   "name": "@flex-development/p013",
-  "description": "Distribution tag utility for Node.js & CLI environments",
+  "description": "Distribution tag lookup utility",
   "keywords": [],
   "homepage": "https://github.com/flex-development/dtag",
   "repository": "git://github.com/flex-development/dtag.git",
