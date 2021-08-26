@@ -31,6 +31,7 @@
     "@commitlint/cli": "13.0.0",
     "@commitlint/config-conventional": "13.0.0",
     "@commitlint/format": "13.0.0",
+    "@flex-development/grease": "1.0.2",
     "@types/fs-extra": "9.0.11",
     "@types/jest": "26.0.23",
     "@types/lodash": "4.14.172",
