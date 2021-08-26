@@ -1,0 +1,98 @@
+{
+  "name": "@flex-development/p013",
+  "description": "Distribution tag utility for Node.js & CLI environments",
+  "keywords": [],
+  "homepage": "https://github.com/flex-development/dtag",
+  "repository": "git://github.com/flex-development/dtag.git",
+  "bugs": {
+    "url": "https://github.com/flex-development/dtag/issues"
+  },
+  "author": {
+    "name": "Lexus Drumgold",
+    "email": "unicornware@flexdevlopment.llc",
+    "url": "https://github.com/unicornware"
+  },
+  "scripts": {
+    "clean": "rimraf node_modules",
+    "prepare": "yarn workspaces foreach -itv run prepare",
+    "postinstall": "husky-run install",
+    "bootstrap": "yarn; yarn prepare",
+    "check:format": "prettier --check .",
+    "check:style": "eslint . --ext md,js,ts",
+    "fix:format": "prettier --write .",
+    "fix:style": "yarn check:style --fix --cache",
+    "test": "bash scripts/jest.sh",
+    "test:node": "yarn workspace @flex-development/dtag test",
+    "build:node": "yarn workspace @flex-development/dtag build",
+    "release:node": "yarn workspace  @flex-development/dtag release"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "7.14.7",
+    "@commitlint/cli": "13.0.0",
+    "@commitlint/config-conventional": "13.0.0",
+    "@commitlint/format": "13.0.0",
+    "@types/fs-extra": "9.0.11",
+    "@types/jest": "26.0.23",
+    "@types/lodash": "4.14.172",
+    "@types/mvdan-sh": "0.5.0",
+    "@types/node": "15.12.5",
+    "@types/rimraf": "2.0.4",
+    "@types/shelljs": "0.8.8",
+    "@typescript-eslint/eslint-plugin": "4.28.0",
+    "@typescript-eslint/parser": "4.28.0",
+    "@zerollup/ts-transform-paths": "1.7.18",
+    "chalk-cli": "4.1.0",
+    "copyfiles": "2.4.1",
+    "dotenv-cli": "4.0.0",
+    "eslint": "7.29.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-jest": "24.3.6",
+    "eslint-plugin-jsdoc": "36.0.6",
+    "eslint-plugin-markdown": "2.2.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-spellcheck": "0.0.19",
+    "eslint-plugin-tree-shaking": "1.9.2",
+    "fs-extra": "10.0.0",
+    "husky": "4.3.8",
+    "jest": "27.0.6",
+    "jest-extended": "0.11.5",
+    "jest-github-reporter": "1.0.2",
+    "jest-mock-console": "1.1.0",
+    "lint-staged": "11.0.0",
+    "mkdirp": "0.5.5",
+    "npm": "7.19.0",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.3.2",
+    "prettier-plugin-sh": "0.7.0",
+    "replace-in-file": "6.2.0",
+    "rimraf": "3.0.2",
+    "ts-jest": "27.0.4",
+    "ts-node": "10.1.0",
+    "tsconfig-paths": "3.9.0",
+    "ttypescript": "1.5.12",
+    "typescript": "4.3.4"
+  },
+  "engines": {
+    "yarn": "3.0.0-rc.2"
+  },
+  "resolutions": {
+    "read-pkg": "5.2.0"
+  },
+  "env": {
+    "optional": [
+      "DEBUG",
+      "DEBUG_COLORS"
+    ],
+    "required": [
+      "NPM_TOKEN_FLDV",
+      "PAT_GPR_FLDV",
+      "PROJECT_CWD"
+    ]
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
