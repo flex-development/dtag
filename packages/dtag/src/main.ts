@@ -11,10 +11,11 @@ import type { DistTagOptions } from './interfaces'
  * Searches for a [distribution (dist) tag][1] value in `options.version`.
  *
  * The function assumes a project's [dist tag][1] is included in it's version
- * number  (e.g `3.13.98-dev.640` where `dev` is the intended dist tag value).
+ * number or release tag (e.g `3.13.98-dev.640` where `dev` is the intended tag,
+ * or `foo-package@26.0.0-alpha.1` where `alpha` is the intended tag).
  *
- * In cases where the tag found is not the tag intended (e.g: `3.13.98-rc.640`),
- * use `options.map` to interpolate tags.
+ * Use `options.map` to interpolate tags in cases where the tag found is not the
+ * tag intended (e.g: `v3.13.98-rc.640`).
  *
  * [1]: https://docs.npmjs.com/cli/v7/commands/npm-dist-tag
  *
